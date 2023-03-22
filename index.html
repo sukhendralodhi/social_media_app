@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media-App</title>
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- main container start -->
+    <div
+      id="container"
+      class="flex flex-col justify-center border-2 border-blue-400 w-full"
+    >
+      <!-- heading start -->
+      <h1 class="text-center text-black text-3xl font-bold py-4">Social Media App</h1>
+      <!-- heading end -->
+      <!-- second main container start  -->
+      <div class="flex flex-col w-full px-4 sm:flex-row">
+          <!-- left-container start -->
+        <div class="border-2 border-red-400 sm:w-6/12">
+          <div id="input-container">
+            <p>Write your post...</p>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Write your post here...."
+            ></textarea>
+            <button>Post</button>
+          </div>
+        </div>
+        <!-- left-container end -->
+        <!-- right-container start  -->
+        <div class="border-2 border-pink-400 sm:w-6/12">
+          <h3>Your post here</h3>
+          <div id="post-container"></div>
+        </div>
+        <!-- right-container end  -->
+      </div>
+      <!-- second main container start  -->
+    </div>
+    <!-- main container end -->
+    <!-- JavaScript  -->
+    <script src="app.js"></script>
+  </body>
+</html>
