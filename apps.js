@@ -29,7 +29,7 @@ let dataValidation = () => {
 let postData = () => {
   postContainer.innerHTML += `
   <!-- post content start  -->
-  <div class="flex flex-col justify-between items-center w-full px-8 flax-wrap my-4 border py-2 rounded border-gray-400">
+  <div class="flex flex-col justify-between items-center w-full px-2 flax-wrap my-4 border py-2 rounded border-gray-400">
     <!-- main data start  -->
     <p class="w-full">${data.text}</p>
     <!-- main data end -->
