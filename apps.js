@@ -31,24 +31,16 @@ let postData = () => {
   <!-- post content start  -->
   <div class="flex flex-col justify-between items-center w-full px-2 flax-wrap my-4 border py-2 rounded border-gray-400">
     <!-- main data start  -->
-    <p class="w-full">${data.text}</p>
+    <p class="w-full" id="text-element">${data.text}</p>
     <!-- main data end -->
     <!-- edit and delete btn section start  -->
     <p class="flex w-full text-center mt-2">
       <!-- edit button  -->
-      <span class="edit-btn" class="px-2 hover:border-2 border-red-400"
-        ><img
-          class="w-6 hover:animate-bounce hover:bg-green-600 rounded-full text-center"
-          src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-256.png"
-          alt="edit-img-btn"
-      /></span>
+      <span class="px-2 hover:text-green-900 cursor-pointer hover:animate-bounce edit-btn"
+        >Edit Post</span>
       <!-- delete button  -->
-      <span class="delete-btn px-8"
-        ><img
-          class="w-6 hover:animate-bounce hover:bg-red-600 rounded-full"
-          src="https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/trashcan_delete_remove-256.png"
-          alt="delete-btn-img"
-      /></span>
+      <span class="delete-btn px-8 cursor-pointer hover:text-red-900 hover:animate-bounce"
+        >Delete Post</span>
     </p>
     <!-- edit and delete btn section end -->
   </div>
@@ -70,6 +62,25 @@ let postData = () => {
       deletePost(e);
     });
   });
+
+  //   edit post function
+  const editPost = (eve) => {
+    if (eve.currentTarget.innerText === "Edit Post") {
+      eve.currentTarget.parentElement.previousElementSibling.contentEditable = true;
+      console.log("True");
+      eve.currentTarget.innerText = "Save Post";
+    } else {
+      eve.currentTarget.parentElement.previousElementSibling.contentEditable = false;
+      eve.currentTarget.innerText = "Edit Post";
+      console.log("False");
+    }
+  };
+
+  editBtns.forEach((editBtn) => {
+    editBtn.addEventListener("click", (eve) => {
+      editPost(eve);
+    });
+  });
 };
 
 // addEventListener to btn
@@ -85,3 +96,15 @@ textArea.addEventListener("keypress", (eve) => {
     postBtn.click();
   }
 });
+
+/* <img
+          class="edit w-6 hover:animate-bounce hover:bg-green-600 rounded-full text-center"
+          src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-256.png"
+          alt="edit-img-btn"
+      /> */
+
+//   <img
+//       class="w-6 hover:animate-bounce hover:bg-red-600 rounded-full"
+//       src="https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/trashcan_delete_remove-256.png"
+//       alt="delete-btn-img"
+// //   />
