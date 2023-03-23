@@ -4,7 +4,12 @@ const postContainer = document.getElementById("post-container");
 
 const postData = () => {
   let data = textArea.value;
-  postContainer.innerHTML += `
+  let warningEle = document.getElementById("warning");
+  if (textArea.value == "" || textArea.value.length < 4) {
+    warningEle.innerText = "Input field can not be empty!";
+  } else {
+    warningEle.innerText = "";
+    postContainer.innerHTML += `
     <!-- post content start  -->
     <div class="flex justify-between items-center w-full px-8 h-10">
       <!-- main data start  -->
@@ -32,17 +37,32 @@ const postData = () => {
     <!-- post content end  -->
     `;
 
-  const editBtns = document.querySelectorAll(".edit-btn");
-  const deleteBtns = document.querySelectorAll(".delete-btn");
+    const editBtns = document.querySelectorAll(".edit-btn");
+    const deleteBtns = document.querySelectorAll(".delete-btn");
 
-  deleteBtns.forEach((deleteBtn) => {
-    deleteBtn.addEventListener("click", (e) => {
-      e.currentTarget.parentElement.parentElement.remove();
+    const deletePost = (eve) => {
+        let text = 'Press Ok! for delete \n Or cancel!';
+        if(confirm(text)== true) {
+            eve.currentTarget.parentElement.parentElement.remove();
+        }
+    };
+
+    deleteBtns.forEach((deleteBtn) => {
+      deleteBtn.addEventListener("click", (e) => {
+        deletePost(e);
+      });
     });
-  });
+  }
 };
 
 postBtn.addEventListener("click", () => {
   postData();
   textArea.value = "";
+});
+
+textArea.addEventListener("keypress", (eve) => {
+  if (eve.key === "Enter") {
+    eve.preventDefault();
+    postBtn.click();
+  }
 });
