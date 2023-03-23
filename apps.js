@@ -29,23 +29,23 @@ let dataValidation = () => {
 let postData = () => {
   postContainer.innerHTML += `
   <!-- post content start  -->
-  <div class="flex justify-between items-center w-full px-8 h-10">
+  <div class="flex flex-col justify-between items-center w-full px-8 flax-wrap my-4 border py-2 rounded border-gray-400">
     <!-- main data start  -->
-    <p class="w-3/5">${data.text}</p>
+    <p class="w-full">${data.text}</p>
     <!-- main data end -->
     <!-- edit and delete btn section start  -->
-    <p class="flex classw-2/5">
+    <p class="flex w-full text-center mt-2">
       <!-- edit button  -->
       <span class="edit-btn" class="px-2 hover:border-2 border-red-400"
         ><img
-          class="w-6"
+          class="w-6 hover:animate-bounce hover:bg-green-600 rounded-full text-center"
           src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-256.png"
           alt="edit-img-btn"
       /></span>
       <!-- delete button  -->
-      <span class="delete-btn"
+      <span class="delete-btn px-8"
         ><img
-          class="w-6"
+          class="w-6 hover:animate-bounce hover:bg-red-600 rounded-full"
           src="https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/trashcan_delete_remove-256.png"
           alt="delete-btn-img"
       /></span>
